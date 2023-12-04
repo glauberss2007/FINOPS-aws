@@ -15,6 +15,7 @@ By incorporating these multiple data sources into MS Power BI, comprehensive das
 The steps to create an Amazon S3 bucket are:
 
 1. Access the AWS Console: Log in to your AWS account at https://aws.amazon.com/ and navigate to the AWS Management Console.
+
 2. Navigate to S3: In the AWS Management Console, search for and select the "S3" service, or type "S3" in the search bar and choose Amazon S3 when it appears.
 3. Create a new bucket: Click on the "Create bucket" button -> Choose a unique name for the bucket. Remember, bucket names must be globally unique -> Select the region where you want to create the bucket.
 4. Configure bucket settings: Set access control and permissions ->  You can define either public or private access, and configure access policies -> Choose configuration options such as versioning, logging, encryption, and more, based on your requirements.
