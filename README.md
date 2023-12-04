@@ -27,8 +27,11 @@ The steps to create an Amazon S3 bucket are:
 To export AWS Cost and Usage Reports data to an S3 bucket in Parquet format, you can follow these general steps using the AWS Management Console:
 
 1. Access AWS Cost and Usage Reports: Sign in to the AWS Management Console -> Go to the AWS Cost Management Console.
+
 2. Set Up AWS Cost & Usage Reports: If you haven't already set up Cost & Usage Reports, you'll need to do so -> Choose the settings for your report, including time granularity (hourly in this case), data granularity, and whether to include resource IDs, tags, etc. -> Specify the S3 bucket created in previous step toto store the reports in.
+
 3. Export Data to S3 in Parquet Format: Once the reports are configured and generated, they will be stored in the specified S3 bucket in a predefined format (e.g., CSV or Parquet) -> To export in Parquet format specifically, you may need to adjust the settings in the Cost & Usage Reports configurations to ensure the reports are generated in Parquet.
+
 4. Configure Parquet Format: Within the Cost & Usage Reports settings, if there's an option to choose the format, select Parquet -> Ensure that the reports are being generated and stored in the chosen S3 bucket in Parquet format.
 
 ## Configuring AWS Glue and Crawler
