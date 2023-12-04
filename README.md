@@ -54,8 +54,11 @@ This setup ensures that your CostDataDB database is regularly updated with the l
 To configure AWS Athena to query the Glue database populated with AWS Cost & Usage Reports data, follow these steps:
 
 1. Access Athena Console: Log in to AWS Management Console -> Navigate to the Athena service.
+
 2. Create a Table in Athena: Select Database -> Choose the database you created in AWS Glue (e.g., "CostDataDB").
+
 3. Create Table: Click on "Create Table" to define a new table -> Select "From AWS Glue Data Catalog" -> Choose the Glue Table -> Select the table representing your AWS Cost & Usage Reports data that was created by the Glue crawler.
+
 4. Review Table Schema: Athena will provide a preview of the table schema based on the Glue catalog.
 
 By configuring Athena to query your Glue database, you can effectively analyze and derive insights from your AWS Cost & Usage Reports data. Make sure you have the necessary permissions to access Athena and the Glue database.
