@@ -63,4 +63,46 @@ To configure AWS Athena to query the Glue database populated with AWS Cost & Usa
 
 By configuring Athena to query your Glue database, you can effectively analyze and derive insights from your AWS Cost & Usage Reports data. Make sure you have the necessary permissions to access Athena and the Glue database.
 
+Some usefull cost related queries can be founded in AWS Well Architected Labs [link](https://dx1572sre29wk.cloudfront.net/cost-optimization/cur_queries/queries/analytics/)
+
 ## Importing to Power BI and using PowerQuery to customize it
+
+The exported data used to pop the PowerBI template provided in this project is below:
+
+````
+SELECT 
+  bill_payer_account_id,
+  line_item_usage_account_id,
+  DATE_FORMAT((line_item_usage_start_date),'%Y-%m-%d') AS day_line_item_usage_start_date, 
+  line_item_usage_type,
+  line_item_resource_id,
+  product_region,
+  line_item_product_code,
+  SUM(CAST(line_item_usage_amount AS DOUBLE)) AS sum_line_item_usage_amount,
+  SUM(CAST(line_item_unblended_cost AS DECIMAL(16,8))) AS sum_line_item_unblended_cost
+FROM 
+  ${table_name} 
+WHERE 
+  ${date_filter} 
+  AND line_item_product_code = 'AmazonAthena'
+  AND line_item_line_item_type  IN ('DiscountedUsage', 'Usage', 'SavingsPlanCoveredUsage')
+GROUP BY 
+  bill_payer_account_id,
+  line_item_usage_account_id,
+  line_item_usage_start_date,
+  line_item_usage_type,
+  line_item_resource_id,
+  product_region,
+  line_item_product_code
+ORDER BY 
+  sum_line_item_unblended_cost DESC
+LIMIT 20; 
+
+````
+
+Other files are also used in Power BI, in order to provide some information that are not presented in AWS cost report, such as manager per team tag and manager monthly budget.
+
+## References
+
+https://dx1572sre29wk.cloudfront.net/cost-optimization/
+
