@@ -72,6 +72,19 @@ LIMIT 20;
 
 Other files are also used in Power BI, in order to provide some information that are not presented in AWS cost report, such as manager per team tag and manager monthly budget.
 
+## Optionaly: Build Automatic
+
+Attachd this repository you can found an example of terraform file to automaticaly create a S3 and export reports flow.
+
+Ps: Make sure to modify values such as the S3 bucket name, region, and any other specific configurations according to your environment. After creating this .tf file, run the following commands in the directory where the .tf file is located to apply the configurations:
+
+```
+terraform init # Initializes the Terraform directory (execute only once)
+terraform plan # Checks the planned changes
+terraform apply # Applies the configurations specified in the .tf file
+```
+
+
 ## References
 
 https://dx1572sre29wk.cloudfront.net/cost-optimization/
